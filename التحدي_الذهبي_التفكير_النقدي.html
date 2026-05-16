@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 التحدي الذهبي الأسطوري - التفكير النقدي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #F5A623;
+    --gold-bright: #FFD700;
+    --gold-deep: #D4870A;
+    --gold-light: #FFF3C4;
+    --gold-pale: #FFFAED;
+    --cream: #FFFDF5;
+    --rose: #FFE4EC;
+    --mint: #E8FFF4;
+    --sky: #E8F4FF;
+    --shadow-gold: rgba(245,166,35,0.35);
+    --text-dark: #2D1A00;
+    --text-mid: #5C3A00;
+    --text-light: #8B5E00;
+    --white: #FFFFFF;
+    --green: #22C55E;
+    --red: #EF4444;
+    --radius: 24px;
+    --radius-sm: 14px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    background: linear-gradient(135deg, #FFF9E6 0%, #FFFDF5 40%, #FFF3C4 70%, #FFFAED 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
+    direction: rtl;
+  }
+
+  /* ===== HERO HEADER ===== */
+  .hero {
+    background: linear-gradient(135deg, #B8860B 0%, #DAA520 20%, #FFD700 50%, #FFA500 75%, #D4870A 100%);
+    padding: 28px 20px 22px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(180,120,0,0.45);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 2px,
+      transparent 2px,
+      transparent 14px
+    );
+  }
+  .hero-stars {
+    font-size: 1.4rem;
+    letter-spacing: 6px;
+    margin-bottom: 8px;
+    animation: twinkle 2s infinite alternate;
+  }
+  @keyframes twinkle { from { opacity: 0.7; } to { opacity: 1; } }
+  .hero-title {
+    font-family: 'Tajawal', sans-serif;
+    font-size: clamp(1.3rem, 4.5vw, 2.3rem);
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,200,0,0.8), 0 3px 8px rgba(0,0,0,0.4);
+    line-height: 1.35;
+    position: relative;
+  }
+  .hero-sub {
+    font-size: clamp(0.85rem, 2.5vw, 1.05rem);
+    color: rgba(255,255,255,0.92);
+    margin-top: 8px;
+    font-weight: 600;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 50px;
+    padding: 4px 18px;
+    font-size: 0.85rem;
+    color: #fff;
+    margin-top: 10px;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ===== PROGRESS BAR ===== */
+  .progress-wrapper {
+    background: var(--white);
+    border-bottom: 3px solid var(--gold-light);
+    padding: 14px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(245,166,35,0.15);
+  }
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-mid);
+  }
+  .progress-bar-bg {
+    background: var(--gold-light);
+    border-radius: 50px;
+    height: 16px;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold-deep), var(--gold-bright), var(--gold));
+    border-radius: 50px;
+    transition: width 0.5s cubic-bezier(.34,1.56,.64,1);
+    position: relative;
+    min-width: 0;
+  }
+  .progress-bar-fill::after {
+    content: '✨';
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+  .progress-count {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--gold-deep);
+  }
+
+  /* ===== PHASE HEADERS ===== */
+  .phase-header {
+    margin: 30px 16px 20px;
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 25px var(--shadow-gold);
+  }
+  .phase-1 { background: linear-gradient(135deg, #E8F5FF, #D0EAFF); border: 2px solid #90C7F5; }
+  .phase-2 { background: linear-gradient(135deg, #E8FFE8, #C8F5C8); border: 2px solid #6DB96D; }
+  .phase-3 { background: linear-gradient(135deg, #FFF3D0, #FFE4A0); border: 2px solid #D4A017; }
+  .phase-4 { background: linear-gradient(135deg, #FFE8F0, #FFD0E0); border: 2px solid #E06090; }
+
+  .phase-title {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 900;
+    font-family: 'Tajawal', sans-serif;
+  }
+  .phase-1 .phase-title { color: #1565C0; }
+  .phase-2 .phase-title { color: #2E7D32; }
+  .phase-3 .phase-title { color: #8B5E00; }
+  .phase-4 .phase-title { color: #AD1457; }
+
+  .phase-desc {
+    font-size: 0.82rem;
+    margin-top: 5px;
+    font-weight: 600;
+    opacity: 0.8;
+  }
+  .phase-emoji {
+    font-size: 2.4rem;
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ===== QUESTION CARDS ===== */
+  .questions-container { padding: 0 14px 60px; }
+
+  .q-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 18px;
+    margin-bottom: 16px;
+    border: 2px solid var(--gold-light);
+    box-shadow: 0 4px 18px rgba(245,166,35,0.12);
+    transition: box-shadow 0.3s;
+    position: relative;
+  }
+  .q-card:hover { box-shadow: 0 8px 30px rgba(245,166,35,0.25); }
+  .q-card.revealed { border-color: var(--gold); }
+
+  .q-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: 900;
+    font-size: 0.85rem;
+    margin-left: 10px;
+    flex-shrink: 0;
+    box-shadow: 0 3px 10px var(--shadow-gold);
+  }
+
+  .q-header { display: flex; align-items: flex-start; margin-bottom: 14px; }
+
+  .q-type-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 50px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .badge-mcq { background: var(--sky); color: #1565C0; border: 1px solid #90C7F5; }
+  .badge-tf { background: var(--mint); color: #2E7D32; border: 1px solid #6DB96D; }
+
+  .q-text {
+    font-size: clamp(0.88rem, 2.5vw, 1rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .q-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-right: 46px;
+  }
+  .q-option {
+    background: var(--gold-pale);
+    border: 1.5px solid var(--gold-light);
+    border-radius: var(--radius-sm);
+    padding: 9px 14px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .opt-label {
+    width: 24px; height: 24px;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+  }
+  .opt-label.correct {
+    background: var(--green);
+    animation: popIn 0.4s cubic-bezier(.34,1.56,.64,1);
+  }
+
+  /* ===== REVEAL BUTTON ===== */
+  .reveal-btn {
+    width: 100%;
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #D4870A, #FFD700, #F5A623);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--white);
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px var(--shadow-gold);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    margin-right: 0;
+  }
+  .reveal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px var(--shadow-gold);
+  }
+  .reveal-btn:active { transform: translateY(0); }
+  .reveal-btn.done {
+    background: linear-gradient(135deg, #6B7280, #9CA3AF);
+    box-shadow: none;
+    cursor: default;
+  }
+
+  /* ===== ANSWER BOX ===== */
+  .answer-box {
+    display: none;
+    margin-top: 14px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    animation: popIn 0.45s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes popIn {
+    from { opacity: 0; transform: scale(0.85) translateY(10px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .answer-box.show { display: block; }
+
+  .answer-correct {
+    background: linear-gradient(135deg, #DCFCE7, #BBF7D0);
+    border: 2px solid var(--green);
+    padding: 12px 16px;
+  }
+  .answer-wrong-label {
+    background: linear-gradient(135deg, #FEE2E2, #FECACA);
+    border: 2px solid var(--red);
+    padding: 12px 16px;
+  }
+  .answer-label {
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: #166534;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .answer-value {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #14532D;
+  }
+  .answer-explanation {
+    background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+    border: 2px solid var(--gold);
+    border-top: none;
+    padding: 12px 16px;
+  }
+  .explanation-label {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--gold-deep);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .explanation-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  /* ===== COUNTER SUMMARY ===== */
+  .counter-bar {
+    display: flex;
+    gap: 10px;
+    padding: 0 14px 18px;
+    flex-wrap: wrap;
+  }
+  .counter-pill {
+    flex: 1;
+    min-width: 120px;
+    background: var(--white);
+    border: 2px solid var(--gold-light);
+    border-radius: 50px;
+    padding: 8px 16px;
+    text-align: center;
+    font-weight: 800;
+    font-size: 0.88rem;
+    color: var(--text-mid);
+  }
+  .counter-pill span { font-size: 1.2rem; color: var(--gold-deep); display: block; }
+
+  /* ===== FINISH SCREEN ===== */
+  .finish-screen {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .finish-screen.show { display: flex; animation: fadeIn 0.4s; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .finish-card {
+    background: linear-gradient(135deg, #FFFDF5, #FFF3C4, #FFD700);
+    border-radius: 30px;
+    padding: 36px 28px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 4px solid var(--gold);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: popIn 0.5s cubic-bezier(.34,1.56,.64,1);
+  }
+  .finish-trophy { font-size: 5rem; margin-bottom: 12px; }
+  .finish-title { font-size: 1.6rem; font-weight: 900; color: var(--text-dark); font-family: 'Tajawal', sans-serif; }
+  .finish-msg { font-size: 0.95rem; color: var(--text-mid); margin: 12px 0 20px; font-weight: 600; line-height: 1.6; }
+  .finish-btn {
+    background: linear-gradient(135deg, var(--gold-deep), var(--gold-bright));
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 13px 32px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 4px 20px var(--shadow-gold);
+    transition: all 0.3s;
+  }
+  .finish-btn:hover { transform: scale(1.05); }
+
+  .tf-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-right: 46px;
+  }
+  .tf-option {
+    flex: 1;
+    background: var(--gold-pale);
+    border: 1.5px solid var(--gold-light);
+    border-radius: var(--radius-sm);
+    padding: 9px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-mid);
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 20px 14px 16px; }
+    .q-card { padding: 16px 14px; }
+    .q-options, .tf-options { padding-right: 0; }
+    .phase-emoji { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-stars">⭐ 🏆 ⭐ 🌟 ⭐ 🏆 ⭐</div>
+  <div class="hero-title">🏆 التحدي الذهبي الأسطوري<br>الامتحان الشامل للفاينل (80 سؤال)!</div>
+  <div class="hero-sub">مادة التفكير النقدي — فصول: الثاني، الثالث، الرابع</div>
+  <div class="hero-badge">🎯 80 سؤال · 4 مراحل تحدي · اكشف إجاباتك فوراً</div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrapper">
+  <div class="progress-header">
+    <span>🔥 تقدمك في التحدي</span>
+    <span class="progress-count" id="progressText">0 / 80 سؤال</span>
+  </div>
+  <div class="progress-bar-bg">
+    <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<!-- COUNTER PILLS -->
+<div class="counter-bar" style="margin-top:14px;">
+  <div class="counter-pill">🟢 مكشوف<span id="revealedCount">0</span></div>
+  <div class="counter-pill">📋 متبقي<span id="remainCount">80</span></div>
+  <div class="counter-pill">🏅 المرحلة<span id="phaseInfo">1</span></div>
+</div>
+
+<div class="questions-container" id="questionsContainer"></div>
+
+<!-- FINISH SCREEN -->
+<div class="finish-screen" id="finishScreen">
+  <div class="finish-card">
+    <div class="finish-trophy">🏆</div>
+    <div class="finish-title">أسطوري! أتممتَ التحدي!</div>
+    <div class="finish-msg">أنهيتم جميع الـ 80 سؤال بنجاح!<br>أنتم الآن على أتم استعداد للفاينل 🎯<br>الثقة + المذاكرة = النجاح الذهبي!</div>
+    <button class="finish-btn" onclick="resetExam()">🔄 أعد التحدي من البداية</button>
+  </div>
+</div>
+
+<script>
+const questions = [
+
+// =============================================
+// PHASE 1 - المبتدئ (20 سؤال: 10 MCQ + 10 TF)
+// =============================================
+{phase:1,type:'mcq',text:'ما هي العملية العقلية التي تنتقل فيها من الجزئيات إلى القاعدة العامة؟',options:['أ) الاستنباط','ب) الاستقراء','ج) التفسير','د) الاستنتاج'],correct:1,explanation:'الاستقراء هو الانتقال من الجزء إلى الكل، ومن الخاص إلى العام، للوصول إلى قاعدة عامة.'},
+{phase:1,type:'mcq',text:'التفكير النقدي يتطلب الموضوعية، وذلك يعني:',options:['أ) الاعتماد على المشاعر','ب) الابتعاد عن التحيز الشخصي','ج) قبول آراء الآخرين دائماً','د) التسليم بالحقائق دون تحقق'],correct:1,explanation:'الموضوعية تعني البُعد عن التحيز الشخصي والاعتماد على الأدلة والبراهين لا على العواطف.'},
+{phase:1,type:'mcq',text:'من أمثلة الحقائق (لا الآراء):',options:['أ) الطب البيطري أفضل من الطب البشري','ب) مجموع زوايا المثلث يساوي 180 درجة','ج) الرياضيات أصعب من اللغة الإنجليزية','د) المدارس الخاصة أفضل من الحكومية'],correct:1,explanation:'مجموع زوايا المثلث = 180 درجة حقيقة علمية مثبتة يتفق عليها الجميع، بخلاف باقي الخيارات التي هي آراء شخصية.'},
+{phase:1,type:'mcq',text:'الافتراض هو:',options:['أ) حقيقة علمية مثبتة','ب) شيء يسلّم به الشخص ويعتبره بديهياً','ج) رأي شخصي غير موثق','د) نتيجة مستخلصة من بيانات'],correct:1,explanation:'الافتراض شيء يسلّم به الشخص دون إثبات، ويكون منطلقاً لأقواله وأفعاله وكتاباته.'},
+{phase:1,type:'mcq',text:'التفكير الخرافي هو نمط تفكير يقدم:',options:['أ) حلولاً علمية موضوعية','ب) تفسيرات وهمية للظواهر لا ترتبط بأسباب حقيقية','ج) استنتاجات منطقية مبنية على بيانات','د) تحليلاً نقدياً للمشكلات'],correct:1,explanation:'التفكير الخرافي يفسر الظواهر بأسباب وهمية أو خرافية لا صلة حقيقية لها بالظاهرة، كربط النكبة بكسر المرآة.'},
+{phase:1,type:'mcq',text:'أي مما يلي يُعدّ من معايير التفكير النقدي؟',options:['أ) الغموض','ب) الوضوح والدقة','ج) التحيز','د) الإهمال'],correct:1,explanation:'من أهم معايير التفكير النقدي: الوضوح (Clarity) والدقة (Precision) والمنطق (Logic).'},
+{phase:1,type:'mcq',text:'أي مما يلي يمثل مهارة التمييز بين الحقيقة والرأي بشكل صحيح؟',options:['أ) الحقيقة تُبنى على ما يعتقده الفرد','ب) الرأي يختلف باختلاف الأشخاص','ج) الحقيقة لا يمكن التحقق منها','د) الرأي يُتفق عليه من الجميع'],correct:1,explanation:'الرأي تعبير شخصي يختلف باختلاف الأشخاص ولا يحظى باتفاق عام، على عكس الحقيقة.'},
+{phase:1,type:'mcq',text:'الاستنباط هو:',options:['أ) الانتقال من الكل إلى الجزء','ب) الانتقال من الجزء إلى الكل','ج) جمع المعلومات من مصادر متعددة','د) اختبار الفرضيات العلمية'],correct:0,explanation:'الاستنباط عكس الاستقراء؛ يبدأ من قاعدة عامة (الكل) وينتهي باستخلاص نتيجة جزئية (الجزء).'},
+{phase:1,type:'mcq',text:'أي مما يلي يمثل "الموروث الثقافي" الذي يُعيق التفكير النقدي؟',options:['أ) التساؤل وعدم التسليم','ب) القبول الأعمى للتقاليد دون تمحيص','ج) البحث عن الأدلة','د) الموضوعية في التفكير'],correct:1,explanation:'القبول الأعمى للموروث الثقافي يؤدي إلى الإدراك الانتقائي الذي يُعيق التفكير النقدي الموضوعي.'},
+{phase:1,type:'mcq',text:'مهارة تقويم الحجج تعني:',options:['أ) قبول الحجج دائماً','ب) رفض الحجج دائماً','ج) إدراك جوانب القوة والضعف في الحجج','د) الاعتماد على الحدس في الحكم'],correct:2,explanation:'تقويم الحجج هو القدرة على إدراك الجوانب المهمة للقضية، والحكم على الآراء مع تمييز نقاط القوة والضعف فيها.'},
+
+// True/False Phase 1
+{phase:1,type:'tf',text:'الرأي يُبنى على خبرات عدد كبير من الناس ويتفق عليه الجميع.',correct:'خطأ',explanation:'هذا وصف الحقيقة، أما الرأي فيُبنى على ما يعتقده الفرد ويختلف من شخص لآخر.'},
+{phase:1,type:'tf',text:'التفكير الاستقرائي ينتقل من الخاص إلى العام.',correct:'صح',explanation:'الاستقراء هو بالضبط الانتقال من الحالات الجزئية إلى القاعدة الكلية العامة.'},
+{phase:1,type:'tf',text:'الحقائق العلمية تصلح موضوعاً للتفكير النقدي وتستثير الخلاف في الرأي.',correct:'خطأ',explanation:'الحقائق العلمية الثابتة كغليان الماء عند 100 درجة لا تصلح موضوعاً للتفكير النقدي، إذ لا مجال للاختلاف فيها.'},
+{phase:1,type:'tf',text:'التعصب هو اعتقاد باطل بأن المرء يملك الحقيقة أو كل الفضيلة.',correct:'صح',explanation:'التعصب يجعل صاحبه يظن أنه على الحق دائماً وغيره على باطل، مما يتعارض مع الحرية والعقلانية والتسامح.'},
+{phase:1,type:'tf',text:'التفكير النقدي يؤدي إلى فهم أعمق للمحتوى المعرفي.',correct:'صح',explanation:'من أهمية التفكير النقدي أنه يُنمي الفهم العميق للمحتوى بدلاً من الحفظ السطحي.'},
+{phase:1,type:'tf',text:'الاستنباط يتكون من: مقدمة كبرى، ومقدمة صغرى، ونتيجة.',correct:'صح',explanation:'نعم، هذه هي المكونات الثلاثة للاستنباط المنطقي وتُعرف بالقياس المنطقي.'},
+{phase:1,type:'tf',text:'التفضيلات الشخصية (كتفضيل لون بعينه) تُعدّ موضوعاً صالحاً للتفكير النقدي.',correct:'خطأ',explanation:'التفضيلات الشخصية ليست محلاً للإقناع أو التقييم النقدي لأنها ذاتية بحتة.'},
+{phase:1,type:'tf',text:'مهارة التفسير هي القدرة على رد الظاهرة إلى أسبابها الحقيقية.',correct:'صح',explanation:'التفسير هو تحديد الأسباب الحقيقية للظاهرة أو الحدث وإيجاد معنى لها في ضوء المعطيات.'},
+{phase:1,type:'tf',text:'التفكير النقدي يشجع التساؤل وعدم التسليم بالحقائق دون تحرٍّ كافٍ.',correct:'صح',explanation:'تنمية روح التساؤل والبحث من أبرز أهميات تعليم التفكير النقدي.'},
+{phase:1,type:'tf',text:'الاستقراء العلمي يقوم على الآراء الذاتية والتصورات الفردية.',correct:'خطأ',explanation:'الاستقراء العلمي يُبنى على الأسس والحقائق العلمية الموضوعية وليس على الآراء الذاتية.'},
+
+// =============================================
+// PHASE 2 - المقاتل (20 سؤال: 10 MCQ + 10 TF)
+// =============================================
+{phase:2,type:'mcq',text:'إذا قال شخص: "سأرتدي معطفي اليوم عند الذهاب للجامعة"، فما الافتراض الكامن في هذه الجملة؟',options:['أ) أن الشخص يحب المعاطيل','ب) أن الجو ممطر وبارد','ج) أن الجامعة بعيدة','د) أن الشخص لا يحب البرد'],correct:1,explanation:'الافتراض الضمني هو أن الجو سيكون بارداً أو ممطراً، ولذلك يحتاج المعطف.'},
+{phase:2,type:'mcq',text:'طالب رصد سلوكيات سلبية لأفراد من شعب معينة وعمّمها على كل أفراد تلك الشعوب. هذا مثال على:',options:['أ) الاستقراء العلمي','ب) الاستقراء غير العلمي','ج) الاستنباط الصحيح','د) التفسير الموضوعي'],correct:1,explanation:'تعميم سلوك بعض الأفراد على الكل بناءً على آراء ذاتية هو استقراء غير علمي وغير موضوعي.'},
+{phase:2,type:'mcq',text:'من خصائص الأفراد ذوي التفكير النقدي:',options:['أ) التسرع في إصدار الأحكام','ب) الاعتماد على السلطة دون تساؤل','ج) المرونة والاعتدال والاستقلالية','د) الميل إلى التحيز والتعصب'],correct:2,explanation:'المفكر الناقد يتميز بالمرونة والاعتدال والاستقلالية في التفكير وحب الاستطلاع والموضوعية.'},
+{phase:2,type:'mcq',text:'الاعتماد على السلطة الفكرية (أحد الوالدين، مشاهير) دون فحص حججهم يُمثل عقبة اسمها:',options:['أ) التفكير الخرافي','ب) الأحكام الأخلاقية المتسرعة','ج) الاعتماد والخضوع للسلطة الفكرية','د) التفكير الأناني'],correct:2,explanation:'الاعتماد الأعمى على السلطة الفكرية يجعل الناس يفقدون استقلاليتهم الإدراكية وملكتهم النقدية.'},
+{phase:2,type:'mcq',text:'الاستنتاج يُعدّ صحيحاً عندما:',options:['أ) يخالف المعطيات المتاحة','ب) يتوافق منطقياً مع المعلومات والبيانات التي انبثق منها','ج) يعتمد على الحدس الشخصي','د) يصدر من شخص ذي سلطة'],correct:1,explanation:'صحة الاستنتاج تُقدَّر في ضوء المعطيات التي انبثق منها؛ فالاستنتاج الصحيح يترتب منطقياً على تلك المعطيات.'},
+{phase:2,type:'mcq',text:'مراحل التفكير النقدي وفق خطوات المنهج العلمي الصحيحة هي:',options:['أ) الاستنتاج ← البحث ← الأسئلة ← الفرضية','ب) الأسئلة ← الفرضية ← البحث وجمع المعلومات ← التحليل واختبار الفرضية ← الاستنتاج','ج) الاستنتاج ← التحليل ← الأسئلة','د) البحث ← الاستنتاج ← الأسئلة ← الفرضية'],correct:1,explanation:'تبدأ مراحل التفكير النقدي بطرح الأسئلة، ثم وضع الفرضية، ثم البحث وجمع المعلومات، ثم التحليل واختبار الفرضية، وأخيراً الخروج باستنتاج.'},
+{phase:2,type:'mcq',text:'التفكير "الأناني" في سياق عقبات التفكير النقدي يعني:',options:['أ) تقديم مصلحة الآخرين على الذات','ب) استخدام البيانات بموضوعية','ج) تفسير المعلومات لخدمة وجهة نظرنا فقط دون موضوعية','د) الانفتاح على الأفكار الجديدة'],correct:2,explanation:'التفكير الأناني هو أن نستخدم المعلومات لتأكيد ما نؤمن به مسبقاً بدلاً من تفسيرها بموضوعية.'},
+{phase:2,type:'mcq',text:'أيٌّ من التالي يمثل المقدمة الكبرى في قياس استنباطي؟',options:['أ) جميع لاعبي التنس رياضيون','ب) جميع الرياضيين لديهم عضلات قوية','ج) خالد لاعب تنس','د) إذن خالد لديه عضلات قوية'],correct:1,explanation:'المقدمة الكبرى هي القاعدة الكلية العامة المقبولة والصادقة. "جميع الرياضيين لديهم عضلات قوية" هي القاعدة الكلية.'},
+{phase:2,type:'mcq',text:'يُستثار التفكير النقدي عند وجود:',options:['أ) توافق كامل بين معتقدات الفرد والموضوع','ب) تعارض بين البنية المعرفية للفرد والموضوع الذي يفكر فيه','ج) غياب المعلومات الكافية','د) التسليم بالحقائق دون تساؤل'],correct:1,explanation:'التناقض بين ما يعتقده الفرد وما يواجهه هو المحرك الأساسي للتفكير النقدي.'},
+{phase:2,type:'mcq',text:'الحكم الأخلاقي المتسرع هو:',options:['أ) الحكم المبني على دراسة متأنية للأدلة','ب) تقييم شخص أو شيء بناءً على مظهره أو انتمائه دون تفكير','ج) الحكم المنطقي المبني على البراهين','د) الحكم المعتمد على الخبرة الشخصية العميقة'],correct:1,explanation:'الحكم الأخلاقي المتسرع هو إصدار حكم على مبدأ "من مظهره" دون تحليل، يعتمد على العاطفة والهوى لا الأدلة.'},
+
+// True/False Phase 2
+{phase:2,type:'tf',text:'التفكير النقدي يجعل المتعلم أكثر إيجابية وتفاعلاً ومشاركة في عملية التعلم.',correct:'صح',explanation:'من أهمية التفكير النقدي أنه يُنشط المتعلم ويجعله طرفاً فاعلاً في عملية التعلم.'},
+{phase:2,type:'tf',text:'الاستقراء الناقص هو الذي يشمل 100% من حالات الظاهرة.',correct:'خطأ',explanation:'الاستقراء الناقص (غير الكامل) هو الذي لا يغطي جميع حالات الظاهرة وإنما عيّنة منها. الكامل هو الذي يشمل 100%.'},
+{phase:2,type:'tf',text:'زوايا النظر إلى التفكير النقدي تشمل: الفكرة النقدية، وخصال الشخصية، ومسار العملية.',correct:'صح',explanation:'هناك ثلاث زوايا: الأولى تتعلق بالفكرة النقدية ومعاييرها، والثانية بخصال الشخصية النقدية، والثالثة بمسار عملية التفكير.'},
+{phase:2,type:'tf',text:'المحاجة تتضمن عمليتين فقط هما: التفنيد والإقناع.',correct:'صح',explanation:'المحاجة تقوم على التفنيد (إثبات خطأ حجة الآخر) والإقناع (تقديم حجج لإثبات صحة دعواك).'},
+{phase:2,type:'tf',text:'التفكير التجريبي (العلمي) يعتمد على الحدس الشخصي والخبرة الذاتية وحدها.',correct:'خطأ',explanation:'التفكير التجريبي يقوم على الخبرة الحسية الموضوعية القابلة للقياس والتكرار والاختبار من الآخرين، لا على الحدس.'},
+{phase:2,type:'tf',text:'الاستقراء العلمي الكامل يُعدّ دائماً أكثر دقة من الناقص.',correct:'صح',explanation:'الاستقراء الكامل الذي يشمل جميع الحالات (100%) أكثر دقة وموثوقية من الناقص الذي يعتمد على عيّنة.'},
+{phase:2,type:'tf',text:'التفكير النقدي لا يُساعد في اتخاذ القرارات.',correct:'خطأ',explanation:'العكس صحيح؛ التفكير النقدي يُعزز القدرة على اتخاذ القرارات السليمة من خلال القراءة الواعية للمواقف والأحداث.'},
+{phase:2,type:'tf',text:'التعصب يُضيّق الوقت ويُعيق الحوار مع الآخرين.',correct:'صح',explanation:'التعصب يجعل صاحبه غير قادر على الحوار العقلاني والتسامح، مما يُعيق التفكير النقدي والانفتاح الفكري.'},
+{phase:2,type:'tf',text:'التفكير الشكّي (Skeptical) هو تساؤل دائم عما يمكن الوثوق به من معرفة.',correct:'صح',explanation:'التفكير الشكّي من مكونات التفكير النقدي، ويعني التساؤل الدائم عن أسس المعرفة ومدى موثوقيتها.'},
+{phase:2,type:'tf',text:'التفسير عملية عقلية غايتها إضفاء معنى على خبراتنا الحياتية أو استخلاص معنى منها.',correct:'صح',explanation:'التفسير يمنح المعنى للظواهر والخبرات، وهو من أهم مهارات التفكير النقدي.'},
+
+// =============================================
+// PHASE 3 - البطل (20 سؤال: 5 MCQ + 15 TF)
+// =============================================
+{phase:3,type:'mcq',text:'شخص يرى أن "الحجارة الزرقاء تجلب المصائب". هذا مثال على:',options:['أ) التفكير النقدي','ب) الاستنتاج الصحيح','ج) التفكير الخرافي','د) التفسير الموضوعي'],correct:2,explanation:'الإيمان بأن الحجارة الزرقاء تجلب المصائب ربط غير حقيقي بين ظاهرتين؛ هذا من أمثلة التفكير الخرافي.'},
+{phase:3,type:'mcq',text:'في استنتاج: "أقيمت مسابقة فحاز خالد أغلب الأصوات، وحصل الآخرون على أصوات أقل، إذن الآخرون غير متفوقين اجتماعياً". هذا الاستنتاج:',options:['أ) صحيح لأن خالد فاز','ب) خاطئ لأن حصولهم على أصوات يُثبت بعض التفوق الاجتماعي','ج) صحيح لأن الفوز المطلق شرط التفوق','د) يحتاج مزيداً من المعلومات فقط'],correct:1,explanation:'خاطئ؛ لأن الآخرين نالوا أصواتاً فعلاً، مما يدل على وجود تفوق اجتماعي ما. الاستنتاج تجاوز ما تدل عليه المعطيات.'},
+{phase:3,type:'mcq',text:'الفرق الجوهري بين التفكير النقدي والتفكير غير النقدي في النتائج هو:',options:['أ) التفكير غير النقدي أسرع دائماً','ب) التفكير النقدي ينتج معرفة موثوقة، وغير النقدي ينتج معرفة غير موثوقة أو اعتقاداً غير مبرر','ج) لا فرق في النتائج بينهما','د) التفكير غير النقدي أكثر إبداعاً'],correct:1,explanation:'الفرق الجوهري في النتائج: التفكير النقدي ينتج معرفة موثوقاً بها، بينما غير النقدي ينتج معرفة غير موثوقة أو اعتقاداً غير مبرر.'},
+{phase:3,type:'mcq',text:'أي من التالي لا يُعدّ من مهارات التفكير النقدي الفعّال؟',options:['أ) استخدام مصادر موثوقة','ب) تأجيل القرارات عند غياب الأدلة','ج) الاعتماد على العواطف في إصدار الأحكام','د) الانفتاح على الأفكار الجديدة'],correct:2,explanation:'الاعتماد على العواطف في الأحكام هو خاصية التفكير العاطفي غير الفعّال، وهو عكس التفكير النقدي الذي يعتمد على العقل والأدلة.'},
+{phase:3,type:'mcq',text:'المقدمة الصغرى في الاستنباط هي:',options:['أ) القاعدة الكلية المقبولة والصادقة','ب) النتيجة النهائية','ج) حالة فردية من حالات القاعدة الكلية','د) الفرضية العلمية الأولية'],correct:2,explanation:'المقدمة الصغرى هي الحالة الفردية الخاصة التي تندرج تحت القاعدة الكلية (المقدمة الكبرى).'},
+
+// TF Phase 3
+{phase:3,type:'tf',text:'التفكير الذي يُبقي على طرق التفكير القديمة ويرفض الأفكار الجديدة يُسمى "التفكير المغلق".',correct:'صح',explanation:'التفكير المغلق يتسم بعدم الرغبة في قبول وقائع وأفكار جديدة والتعويل على الطرائق التقليدية فقط.'},
+{phase:3,type:'tf',text:'التفكير التأملي يتميز بالتسرع في قبول المعتقدات دون تمحيص مقدماتها.',correct:'خطأ',explanation:'التفكير التأملي هو عكس ذلك؛ يتميز بالرغبة في التعليق المؤقت للاعتقاد والتأمل في كفاية المقدمات.'},
+{phase:3,type:'tf',text:'من أخطاء التفكير غير الفعّال "المبالغة في التعميم" أي إصدار أحكام عامة من حادثة واحدة.',correct:'صح',explanation:'المبالغة في التعميم خطأ شائع في التفكير غير الفعّال، وهو استنتاج قاعدة عامة من موقف فردي واحد.'},
+{phase:3,type:'tf',text:'التفكير بطريقة "إما أبيض أو أسود" يعترف بوجود خيارات وسطى.',correct:'خطأ',explanation:'تفكير "الكل أو لا شيء" يرفض الخيارات الوسطى ولا يرى إلا قطبين متناقضين.'},
+{phase:3,type:'tf',text:'التفكير الكمّي يصف الطبيعة والواقع في حدود لغة رياضية دقيقة.',correct:'صح',explanation:'التفكير الكمّي يعتمد الأرقام واللغة الرياضية في وصف الظواهر، عكس الكيفي الذي يعتمد الألفاظ العامة.'},
+{phase:3,type:'tf',text:'تنمية مهارات التفكير النقدي تُقلل من قدرة المتعلم على التعلم الذاتي.',correct:'خطأ',explanation:'العكس صحيح؛ التفكير النقدي ينمّي قدرة المتعلم على التعلم الذاتي بالبحث والتقصي.'},
+{phase:3,type:'tf',text:'التفنيد في المحاجة يعني إثبات أن حجج الطرف الآخر زائفة أو خاطئة.',correct:'صح',explanation:'التفنيد هو إثبات أن صحة حجج الطرف الآخر أو النتيجة المترتبة عليها زائفة أو خاطئة.'},
+{phase:3,type:'tf',text:'التفكير غير الفعّال يتبع منهجية واضحة ودقيقة.',correct:'خطأ',explanation:'التفكير غير الفعّال بالتعريف هو الذي لا يتبع منهجية واضحة أو دقيقة، ويقوم على مغالطات وافتراضات باطلة.'},
+{phase:3,type:'tf',text:'التفكير الروتيني التقليدي يتسم بالتصلب وعدم المرونة والتحيز.',correct:'صح',explanation:'التفكير الروتيني يتميز بالتحيز وعدم الموضوعية والتكرار وعدم التجديد والتصلب.'},
+{phase:3,type:'tf',text:'معيار "اتساع الأفق" (Breadth) في التفكير النقدي يعني الاقتصار على جانب واحد من القضية.',correct:'خطأ',explanation:'اتساع الأفق يعني عكس ذلك؛ أخذ جميع جوانب القضية بعين الاعتبار والنظر من زوايا متعددة.'},
+{phase:3,type:'tf',text:'التفكير الانفعالي يعتمد على العاطفة والمشاعر في اكتشاف الحقيقة دون ثقة في العقل.',correct:'صح',explanation:'التفكير العاطفي (الانفعالي) يعتمد على المشاعر والأهواء لا على العقل والأدلة، وهو نقيض التفكير المعقول.'},
+{phase:3,type:'tf',text:'التفكير الإبداعي (Creative Thinking) من أنواع التفكير العليا.',correct:'صح',explanation:'التفكير العليا يشمل خمسة أنواع: الاستداللي، والنقدي، والإبداعي، وما وراء المعرفي، والتأملي.'},
+{phase:3,type:'tf',text:'القبول الأعمى للموروث الثقافي يُشجع على التفكير النقدي.',correct:'خطأ',explanation:'القبول الأعمى عقبة تعيق التفكير النقدي؛ فهو يُقيّد التفكير بالموروث دون فحص أو تمحيص.'},
+{phase:3,type:'tf',text:'التفكير هو مهارة يمكن تعليمها وتطويرها من خلال التدريب والممارسة.',correct:'صح',explanation:'من خصائص التفكير الإنساني أنه مهارة قابلة للتعلم والتحسين بالتدريب المستمر.'},
+{phase:3,type:'tf',text:'جمع المعلومات حول المشكلة هو الخطوة الأولى في خطوات حل المشكلة وفق التفكير النقدي.',correct:'صح',explanation:'تبدأ خطوات التفكير النقدي في ضوء مراحل حل المشكلة بجمع المعلومات والبيانات لتكوين صورة كاملة عنها.'},
+
+// =============================================
+// PHASE 4 - الأسطورة (20 سؤال: 5 MCQ + 15 TF)
+// =============================================
+{phase:4,type:'mcq',text:'يقول باحث: "درست 50 طالباً في قسم واحد ووجدت أن نسبة النجاح 90%، إذن 90% من طلاب الجامعة ناجحون." ما نوع الاستقراء وما حكمه؟',options:['أ) استقراء علمي كامل — صحيح','ب) استقراء علمي ناقص — قد يُقبل بحذر','ج) استقراء غير علمي — خاطئ لأنه يُعمّم على عينة صغيرة غير ممثلة','د) استنباط — خاطئ لأن النتيجة لا تنبثق من قاعدة عامة'],correct:2,explanation:'هذا استقراء ناقص وغير علمي؛ لأن عيّنة 50 طالباً من قسم واحد غير ممثلة للجامعة كلها، والتعميم متسرع ومُخل.'},
+{phase:4,type:'mcq',text:'أيٌّ من العبارات التالية تُجسّد "التفكير المتزمّت" بدقة؟',options:['أ) قبول فكرة جديدة بعد فحصها بعناية','ب) رفض فكرة جديدة دون النظر في كفاية مقدماتها','ج) تأجيل الحكم حتى توافر الأدلة','د) البحث عن وقائع جديدة تدعم الاستنتاج'],correct:1,explanation:'التفكير المتزمّت هو رفض التأمل وعدم النظر في كفاية المقدمات أو تجاهل النتائج المترتبة على المعتقد.'},
+{phase:4,type:'mcq',text:'يُميّز التفكير الانتقادي بين "التفنيد" و"الرفض". أيٌّ العبارات التالية يصف التفنيد بدقة؟',options:['أ) رفض حجة لمجرد عدم الإعجاب بها','ب) إثبات أن الحجة أو نتيجتها خاطئة بالأدلة والبراهين','ج) قبول الحجة لأنها تأتي من مصدر موثوق','د) رفض الحجة بسبب الموروث الثقافي'],correct:1,explanation:'التفنيد يعتمد على الأدلة والبراهين المنطقية لإثبات خطأ الحجة أو نتيجتها، وهو أعمق من مجرد الرفض.'},
+{phase:4,type:'mcq',text:'ما الفرق الجوهري بين "الاستنتاج" و"الافتراض"؟',options:['أ) لا فرق بينهما','ب) الاستنتاج نتيجة تُستخلص من بيانات ملحوظة، أما الافتراض فهو مسلّمة غير مثبتة يُنطلق منها','ج) الاستنتاج يسبق الافتراض دائماً','د) الافتراض أدق وأكثر موثوقية من الاستنتاج'],correct:1,explanation:'الاستنتاج خلاصة عقلية تُستخلص من معطيات موجودة، بينما الافتراض هو مُسلَّمة يؤخذ بها دون إثبات كنقطة انطلاق.'},
+{phase:4,type:'mcq',text:'أيٌّ من التالي يمثل "مقارنة ظالمة" كأحد أخطاء التفكير غير الفعّال؟',options:['أ) مقارنة نتائج امتحانين بنفس المستوى وبيئة مشابهة','ب) مقارنة دراسة طالب متفرغ بطالب يعمل 8 ساعات يومياً للحكم عليهما بالتساوي','ج) مقارنة نتائج دراستين علميتين محكّمتين','د) مقارنة اثنين من نفس المستوى الأكاديمي'],correct:1,explanation:'المقارنة الظالمة هي مقارنة غير عادلة بين أمور غير متكافئة. مقارنة طالب متفرغ بآخر يعمل ظلم واضح للثاني.'},
+
+// TF Phase 4
+{phase:4,type:'tf',text:'التفكير "الكيفي" أكثر دقة من التفكير "الكمّي" لأنه يستخدم لغة رياضية.',correct:'خطأ',explanation:'التفكير الكمّي هو الأكثر دقة لاستخدامه اللغة الرياضية المحددة، بينما الكيفي يعتمد ألفاظاً عامة وغامضة.'},
+{phase:4,type:'tf',text:'غياب الأدلة الكافية يجب أن يدفع المفكر النقدي إلى تأجيل إصدار الحكم.',correct:'صح',explanation:'من مهارات التفكير النقدي الفعّال تأجيل إصدار القرارات عند الافتقار إلى الأدلة الكافية.'},
+{phase:4,type:'tf',text:'الموروث الثقافي ذو أهمية مطلقة في الحفاظ على هوية المجتمع، لذا يجب قبوله دون أي تساؤل.',correct:'خطأ',explanation:'الموروث الثقافي مهم، لكن القبول الأعمى له دون تمحيص يُعيق التفكير النقدي. المطلوب التفكير الموضوعي فيه.'},
+{phase:4,type:'tf',text:'التفكير النقدي ينتج بالضرورة عن كل نشاط عقلي بشري.',correct:'خطأ',explanation:'التفكير النقدي نمط متخصص وراقٍ من أنماط التفكير العليا؛ لا يحدث تلقائياً بل يتطلب تدريباً وقصداً ووعياً.'},
+{phase:4,type:'tf',text:'يمكن أن يكون الاستقراء ناقصاً من حيث الشمول وعلمياً من حيث منهجيته في آنٍ واحد.',correct:'صح',explanation:'نعم؛ معادن كالحديد والنحاس والألمنيوم: استقراء علمي في منهجيته (قائم على حقائق) ولكنه ناقص (لا يشمل كل المعادن).'},
+{phase:4,type:'tf',text:'التصفية (أحد أخطاء التفكير غير الفعّال) تعني التركيز على الجانب الإيجابي وتجاهل السلبي.',correct:'خطأ',explanation:'التصفية أو التنقية هي عكس ذلك؛ التركيز على السلبي فقط وتجاهل الإيجابي، مما يُشوّه الرؤية الكاملة.'},
+{phase:4,type:'tf',text:'البنية المعرفية للفرد ونظرته الشخصية والمثيرات الخارجية كلها متطلبات لاستثارة التفكير النقدي.',correct:'صح',explanation:'هذه المتطلبات الثلاثة مع "التناقض" و"حل التناقض" تشكل معاً منظومة استثارة التفكير النقدي.'},
+{phase:4,type:'tf',text:'الخضوع للسلطة الفكرية مقبول إذا كان المصدر متخصصاً ومشهوراً في مجاله.',correct:'خطأ',explanation:'التفكير النقدي يُوجب فحص الحجج بغض النظر عن مصدرها؛ الشهرة والتخصص لا يُعفيان من مراجعة الحجج وفحصها.'},
+{phase:4,type:'tf',text:'أسلوب التفكير الخرافي لا يرتبط بالمنهج العلمي في تفسير الظواهر.',correct:'صح',explanation:'التفكير الخرافي يُفسر الظواهر بمسببات وهمية وغير حقيقية لا صلة لها بالمنهج العلمي التجريبي.'},
+{phase:4,type:'tf',text:'التفكير النقدي هو الوسيلة الوحيدة لتنمية الإبداع.',correct:'خطأ',explanation:'التفكير الإبداعي نوع مستقل من أنواع التفكير العليا. التفكير النقدي يُكمله ويدعمه لكنه ليس الوسيلة الوحيدة للإبداع.'},
+{phase:4,type:'tf',text:'التمركز حول الذات (أحد أخطاء التفكير غير الفعّال) يعني تفسير الأحداث من منطلق شخصي بحت ووضع الذات في مركزها.',correct:'صح',explanation:'الإفراط في الذاتية خطأ في التفكير؛ إذ يجعل الشخص يرى كل الأحداث من منظور شخصي محور الذات.'},
+{phase:4,type:'tf',text:'الموضوعية في التفكير النقدي تعني قبول ما يقوله الأكثرية بلا نقاش.',correct:'خطأ',explanation:'الموضوعية تعني الاعتماد على الأدلة والبراهين لا على عدد المؤيدين. "الأكثرية لا تعني الصواب" مبدأ نقدي أساسي.'},
+{phase:4,type:'tf',text:'إدراك جوانب القوة والضعف في الحجج دليل على مهارة تقويم الحجج.',correct:'صح',explanation:'تقويم الحجج يتضمن تمييز الجوانب القوية والضعيفة في الحجج لتحديد مدى قبولها أو رفضها.'},
+{phase:4,type:'tf',text:'التفكير النقدي يقتصر على المجال الأكاديمي ولا يُستخدم في الحياة اليومية.',correct:'خطأ',explanation:'التفكير النقدي يُستخدم يومياً في: اتخاذ القرارات، وإقناع الآخرين، والحكم على الأفكار، وحل المشكلات.'},
+{phase:4,type:'tf',text:'التهويل والتهوين كأخطاء في التفكير غير الفعّال يعنيان تضخيم الأمور أو تهوينها بما لا يتناسب مع حجمها.',correct:'صح',explanation:'التهويل والتهوين يُشوهان الرؤية الموضوعية للأحداث بالإفراط في المبالغة أو التصغير.'},
+
+];
+
+let revealedCount = 0;
+const total = questions.length;
+
+function buildExam() {
+  const container = document.getElementById('questionsContainer');
+  let currentPhase = 0;
+  let qNum = 0;
+  questions.forEach((q, i) => {
+    if (q.phase !== currentPhase) {
+      currentPhase = q.phase;
+      const phaseColors = {1:'phase-1',2:'phase-2',3:'phase-3',4:'phase-4'};
+      const phaseEmojis = {1:'🌱',2:'⚔️',3:'🦸',4:'🧠'};
+      const phaseTitles = {
+        1:'المرحلة الأولى: مستوى المبتدئ',
+        2:'المرحلة الثانية: مستوى المقاتل',
+        3:'المرحلة الثالثة: مستوى البطل',
+        4:'المرحلة الرابعة: مستوى الأسطورة'
+      };
+      const phaseDescs = {
+        1:'20 سؤال — مفاهيم أساسية مباشرة',
+        2:'20 سؤال — فهم واستيعاب',
+        3:'20 سؤال — تركيز وربط أفكار',
+        4:'20 سؤال — عمق وتمييز للعباقرة فقط 🔥'
+      };
+      const ph = document.createElement('div');
+      ph.className = `phase-header ${phaseColors[q.phase]}`;
+      ph.innerHTML = `<div class="phase-emoji">${phaseEmojis[q.phase]}</div>
+        <div class="phase-title">${phaseTitles[q.phase]}</div>
+        <div class="phase-desc">${phaseDescs[q.phase]}</div>`;
+      container.appendChild(ph);
+    }
+    qNum++;
+    const card = document.createElement('div');
+    card.className = 'q-card';
+    card.id = `card-${i}`;
+
+    const badgeClass = q.type === 'mcq' ? 'badge-mcq' : 'badge-tf';
+    const badgeText = q.type === 'mcq' ? '🔵 اختيار من متعدد' : '✅ صح أم خطأ';
+
+    let optionsHTML = '';
+    if (q.type === 'mcq') {
+      optionsHTML = `<div class="q-options" id="opts-${i}">
+        ${q.options.map((o, oi) => `<div class="q-option" id="opt-${i}-${oi}"><span class="opt-label" id="lbl-${i}-${oi}">${['أ','ب','ج','د'][oi]}</span>${o.replace(/^[أبجد]\) /,'')}</div>`).join('')}
+      </div>`;
+    } else {
+      optionsHTML = `<div class="tf-options">
+        <div class="tf-option">✅ صح</div>
+        <div class="tf-option">❌ خطأ</div>
+      </div>`;
+    }
+
+    card.innerHTML = `
+      <div class="q-header">
+        <div class="q-number">${qNum}</div>
+        <div class="q-text">
+          <span class="q-type-badge ${badgeClass}">${badgeText}</span><br>
+          ${q.text}
+        </div>
+      </div>
+      ${optionsHTML}
+      <button class="reveal-btn" id="btn-${i}" onclick="reveal(${i})">🔑 اكشف سر الإجابة</button>
+      <div class="answer-box" id="ans-${i}"></div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function reveal(i) {
+  const q = questions[i];
+  const btn = document.getElementById(`btn-${i}`);
+  const ansBox = document.getElementById(`ans-${i}`);
+  const card = document.getElementById(`card-${i}`);
+
+  if (btn.classList.contains('done')) return;
+
+  btn.classList.add('done');
+  btn.innerHTML = '✅ تم الكشف';
+  card.classList.add('revealed');
+
+  if (q.type === 'mcq') {
+    const correctIdx = q.correct;
+    const lbl = document.getElementById(`lbl-${i}-${correctIdx}`);
+    if (lbl) lbl.classList.add('correct');
+    const correctText = q.options[correctIdx].replace(/^[أبجد]\) /,'');
+    ansBox.innerHTML = `
+      <div class="answer-correct">
+        <div class="answer-label">✅ الإجابة الصحيحة</div>
+        <div class="answer-value">${['أ','ب','ج','د'][correctIdx]}) ${correctText}</div>
+      </div>
+      <div class="answer-explanation">
+        <div class="explanation-label">💡 الشرح الأكاديمي</div>
+        <div class="explanation-text">${q.explanation}</div>
+      </div>`;
+  } else {
+    const isCorrect = q.correct === 'صح';
+    ansBox.innerHTML = `
+      <div class="answer-correct">
+        <div class="answer-label">${isCorrect ? '✅' : '❌'} الإجابة: <strong style="font-size:1.1rem;color:${isCorrect?'#166534':'#991B1B'}">${q.correct}</strong></div>
+      </div>
+      <div class="answer-explanation">
+        <div class="explanation-label">💡 الشرح الأكاديمي</div>
+        <div class="explanation-text">${q.explanation}</div>
+      </div>`;
+  }
+
+  ansBox.classList.add('show');
+  revealedCount++;
+  updateProgress();
+
+  if (revealedCount === total) {
+    setTimeout(() => {
+      document.getElementById('finishScreen').classList.add('show');
+    }, 800);
+  }
+}
+
+function updateProgress() {
+  const pct = Math.round((revealedCount / total) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = `${revealedCount} / ${total} سؤال`;
+  document.getElementById('revealedCount').textContent = revealedCount;
+  document.getElementById('remainCount').textContent = total - revealedCount;
+
+  let phase = 1;
+  if (revealedCount >= 60) phase = 4;
+  else if (revealedCount >= 40) phase = 3;
+  else if (revealedCount >= 20) phase = 2;
+  document.getElementById('phaseInfo').textContent = phase;
+}
+
+function resetExam() {
+  document.getElementById('finishScreen').classList.remove('show');
+  revealedCount = 0;
+  updateProgress();
+  questions.forEach((_, i) => {
+    const btn = document.getElementById(`btn-${i}`);
+    const ansBox = document.getElementById(`ans-${i}`);
+    const card = document.getElementById(`card-${i}`);
+    if (btn) { btn.classList.remove('done'); btn.innerHTML = '🔑 اكشف سر الإجابة'; }
+    if (ansBox) { ansBox.classList.remove('show'); ansBox.innerHTML = ''; }
+    if (card) card.classList.remove('revealed');
+    if (questions[i].type === 'mcq') {
+      [0,1,2,3].forEach(oi => {
+        const lbl = document.getElementById(`lbl-${i}-${oi}`);
+        if (lbl) lbl.classList.remove('correct');
+      });
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+buildExam();
+updateProgress();
+</script>
+</body>
+</html>
